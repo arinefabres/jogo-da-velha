@@ -46,14 +46,14 @@ class _JogoDaVelhaState extends State<JogoDaVelha> {
 
   bool checkWinner(String player) {
     List<List<int>> winConditions = [
-      [0, 1, 2], // Linha 1
-      [3, 4, 5], // Linha 2
-      [6, 7, 8], // Linha 3
-      [0, 3, 6], // Coluna 1
-      [1, 4, 7], // Coluna 2
-      [2, 5, 8], // Coluna 3
-      [0, 4, 8], // Diagonal principal
-      [2, 4, 6], // Diagonal secundária
+      [0, 1, 2],
+      [3, 4, 5],
+      [6, 7, 8],
+      [0, 3, 6],
+      [1, 4, 7],
+      [2, 5, 8],
+      [0, 4, 8],
+      [2, 4, 6],
     ];
 
     for (var condition in winConditions) {
@@ -70,40 +70,46 @@ class _JogoDaVelhaState extends State<JogoDaVelha> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(title: Text("Jogo da Velha")),
-      body: Column(
-        mainAxisAlignment: MainAxisAlignment.center,
-        children: [
-          GridView.builder(
-            gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-              crossAxisCount: 3,
-            ),
-            itemBuilder: (context, index) => GestureDetector(
-              onTap: () => makeMove(index),
-              child: Container(
-                margin: EdgeInsets.all(4.0),
-                color: Colors.blue[100],
-                child: Center(
-                  child: Text(
-                    board[index],
-                    style: TextStyle(fontSize: 48, fontWeight: FontWeight.bold),
+      body: Center(
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            Container(
+              width: MediaQuery.of(context).size.width * 0.8,
+              height: MediaQuery.of(context).size.width * 0.8,
+              child: GridView.builder(
+                gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+                  crossAxisCount: 3,
+                  crossAxisSpacing: 4.0,
+                  mainAxisSpacing: 4.0,
+                ),
+                itemCount: 9,
+                itemBuilder: (context, index) => GestureDetector(
+                  onTap: () => makeMove(index),
+                  child: Container(
+                    color: Colors.blue[100],
+                    child: Center(
+                      child: Text(
+                        board[index],
+                        style: TextStyle(fontSize: 48, fontWeight: FontWeight.bold),
+                      ),
+                    ),
                   ),
                 ),
               ),
             ),
-            itemCount: 9,
-            shrinkWrap: true,
-          ),
-          SizedBox(height: 20),
-          Text(
-            winner.isNotEmpty ? winner : "Vez do jogador: $currentPlayer",
-            style: TextStyle(fontSize: 24, fontWeight: FontWeight.bold),
-          ),
-          SizedBox(height: 20),
-          ElevatedButton(
-            onPressed: resetGame,
-            child: Text("Reiniciar"),
-          ),
-        ],
+            SizedBox(height: 20),
+            Text(
+              winner.isNotEmpty ? winner : "Vez do jogador: $currentPlayer",
+              style: TextStyle(fontSize: 24, fontWeight: FontWeight.bold),
+            ),
+            SizedBox(height: 20),
+            ElevatedButton(
+              onPressed: resetGame,
+              child: Text("Reiniciar"),
+            ),
+          ],
+        ),
       ),
     );
   }
