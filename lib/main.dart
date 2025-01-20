@@ -82,6 +82,7 @@ class _JogoDaVelhaState extends State<JogoDaVelha> {
                   crossAxisCount: 3,
                   crossAxisSpacing: 4.0,
                   mainAxisSpacing: 4.0,
+                  childAspectRatio: 1, // Garantir quadrados iguais
                 ),
                 itemCount: 9,
                 itemBuilder: (context, index) => GestureDetector(

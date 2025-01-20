@@ -13892,9 +13892,11 @@ _.d=d
 _.e=e
 _.f=f},
 WO:function WO(){},
-WP:function WP(a,b,c){this.a=a
-this.b=b
-this.c=c},
+WP:function WP(a,b,c,d){var _=this
+_.a=a
+_.b=b
+_.c=c
+_.d=d},
 ne:function ne(a,b,c){var _=this
 _.b=_.w=null
 _.c=!1
@@ -42772,8 +42774,8 @@ s=this.b
 return s*(B.f.hr(a-1,this.a)+1)-(s-this.d)}}
 A.WO.prototype={}
 A.WP.prototype={
-yv(a){var s=this.c,r=this.a,q=Math.max(0,a.w-s*(r-1))/r,p=q/1
-return new A.WS(r,p+this.b,q+s,p,q,A.os(a.x))}}
+yv(a){var s=this,r=s.c,q=s.a,p=Math.max(0,a.w-r*(q-1))/q,o=p/s.d
+return new A.WS(q,o+s.b,p+r,o,p,A.os(a.x))}}
 A.ne.prototype={
 j(a){return"crossAxisOffset="+A.l(this.w)+"; "+this.LT(0)}}
 A.Bt.prototype={
@@ -42782,7 +42784,7 @@ sJg(a){var s,r,q=this
 if(q.eL===a)return
 s=!0
 if(A.t(a)===A.t(q.eL)){r=q.eL
-if(r.a===a.a)if(r.b===a.b)s=r.c!==a.c}if(s)q.a7()
+if(r.a===a.a)if(r.b===a.b)if(r.c===a.c)s=r.d!==a.d}if(s)q.a7()
 q.eL=a},
 bA(){var s,r,q,p,o,n,m,l,k,j,i,h,g,f,e,d,c,b,a,a0,a1,a2,a3,a4,a5,a6,a7,a8=this,a9=null,b0=t.p.a(A.y.prototype.gT.call(a8)),b1=a8.H
 b1.R8=!1
@@ -56549,7 +56551,7 @@ for(q=this.d,s=0;s<8;++s){r=p[s]
 if(q[r[0]]===a&&q[r[1]]===a&&q[r[2]]===a)return!0}return!1},
 S(a){var s,r=this,q=null,p=A.Xp("Jogo da Velha",q),o=t.w,n=A.cd(a,q,o).w
 o=A.cd(a,q,o).w
-o=A.a4A(q,new A.zp(new A.WP(3,4,4),new A.WK(new A.a0e(r),9,!0,!0,!0,q),q,B.b8,!1,q,q,B.uP,!1,q,9,B.aI,B.Dy,q,B.aG,B.ab,q),q,q,o.a.a*0.8,q,q,n.a.a*0.8)
+o=A.a4A(q,new A.zp(new A.WP(3,4,4,1),new A.WK(new A.a0e(r),9,!0,!0,!0,q),q,B.b8,!1,q,q,B.uP,!1,q,9,B.aI,B.Dy,q,B.aG,B.ab,q),q,q,o.a.a*0.8,q,q,n.a.a*0.8)
 n=A.a5M(q,20,q)
 s=r.f
 s=s.length!==0?s:"Vez do jogador: "+r.e
